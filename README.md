@@ -1,6 +1,6 @@
 # telegeo
 
-This is a python package for scraping Telegram data:iphone: based on geolocation:earth_asia:.
+This is a python package for scraping Telegram:iphone: based on geolocation:earth_asia:.
 
 [:loudspeaker:Check this package on PyPI](https://pypi.org/project/telegeo/)
 
