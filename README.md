@@ -2,7 +2,7 @@
 
 This is a python package for scraping Telegram data based on geolocation.
 
-[Check this package on pypi](https://pypi.org/project/telegeo/)
+[:loudspeaker:Check this package on pypi](https://pypi.org/project/telegeo/)
 
 ## Installing
 ```py
