@@ -45,5 +45,4 @@ use the map_show() function in telegeo to create the map based on the above csv 
 ```py
 telegeo.map_show('geo_range_hk_r500.csv')
 ```
-Figure 2. Display the generated coordinates on map
 ![Figure 2](https://user-images.githubusercontent.com/60833574/187110262-5f72ae26-171d-4493-9844-e67ced0e90d7.png)
