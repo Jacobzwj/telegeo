@@ -29,7 +29,7 @@ users should provide the following parameters⬇
 ★**lon_max**: max longitude of the map range.  
 ★**lat_min**: min latitude of the map range.  
 ★**lon_min**: min longitude of the map range.  
-★**distance**: the distance between two coordinates on the map.
+★**distance**: the distance between two coordinates on the map.  
 ★**save_path**: the path and filename for saving a csv file, which records all the coordinates.  
 _(see Figure 1 for the first 5 parameters)_
 
