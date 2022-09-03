@@ -13,7 +13,7 @@ from tqdm import tqdm
 from math import cos, sin, atan2, sqrt, pi, radians, degrees
 from geopy.point import Point
 import datetime
-import json
+
 
 def map_move(lat, lon, distance, bearing):
     origin = geopy.Point(lat, lon)
@@ -118,8 +118,8 @@ def map_filter(data_path, target):
     df.to_csv(str(data_path).split(".csv")[0] + "_filter.csv", index=False)
 
 
-def api_login(api_id, api_hash):
-    client = TelegramClient('telegeo_api', api_id, api_hash)
+def api_login(api_id, api_hash, session_name):
+    client = TelegramClient(session_name, api_id, api_hash)
     client.start()
     return client
 
