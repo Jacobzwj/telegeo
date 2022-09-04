@@ -288,7 +288,6 @@ def near_entity_resume(client, data_path, data_path_user, data_path_channel, mov
 
 def dedup(data_path):
     df = pd.read_csv(data_path)
-
     if df.columns[2] == "user_id":
         print(str(len(df)) + " users collected through near_entity(), start deduplication...")
         df = df.drop_duplicates("user_id")
@@ -572,8 +571,8 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                              group_info_json, chat_search_json, user_info_json))
                         n = n + 1
                         if (n % 1000) == 0:
-                            time.sleep(30)
-                            print("sleeping 30 seconds")
+                            time.sleep(10)
+                            print("sleeping 10 seconds")
 
             except Exception as e:
                 error = e
@@ -877,8 +876,8 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                              group_info_json, chat_search_json, user_info_json))
                         n = n + 1
                         if (n % 1000) == 0:
-                            time.sleep(30)
-                            print("sleeping 30 seconds")
+                            time.sleep(10)
+                            print("sleeping 10 seconds")
 
             except Exception as e:
                 error = e
