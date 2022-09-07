@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "telegeo"
-version = "0.0.9"
+version = "0.1.0"
 authors = [
   { name="Wanjiang Jacob Zhang", email="zwj1994code@gmail.com" },
 ]

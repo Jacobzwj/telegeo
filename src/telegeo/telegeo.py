@@ -920,8 +920,13 @@ def keywords_search_channel_resume(client, data_path_resume):
         keywords = record[2]
         date_time = record[3]
         after_before = record[4]
+        if after_before== True:
+            after_before = "after"
+        elif after_before == False:
+            after_before = "before"
+        else:
+            print("resume file error due to the wrong after_before")
         save_mode = str(record[-1]).strip()
-        # print(lastID, data_path_keywords, keywords, date_time, after_before, save_mode)
 
     dfo = pd.read_csv(data_path_keywords)
     var = dfo[dfo.channel_id == lastID].index[0]
