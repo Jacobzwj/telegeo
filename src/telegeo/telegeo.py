@@ -124,7 +124,7 @@ def api_login(api_id, api_hash, session_name):
     return client
 
 
-def near_entity(client, data_path, move_num, sleep_seconds, start_index=0):
+def near_entity(client, data_path, sleep_seconds, move_num, start_index=0):
     date_record = pd.to_datetime("today").strftime("%Y-%m-%d_%H%M%S")
     path = 'save_near_entity/'
     filename1 = 'near_user_' + date_record + '.csv'
@@ -154,7 +154,6 @@ def near_entity(client, data_path, move_num, sleep_seconds, start_index=0):
          'channel_restriction_text1', 'channel_restriction_platform2', 'channel_restriction_reason2',
          'channel_restriction_text2',
          'channel_info_json'))
-
 
     def geo_entity(lat, lon, radius):
         result = client(functions.contacts.GetLocatedRequest(
@@ -251,7 +250,7 @@ def near_entity(client, data_path, move_num, sleep_seconds, start_index=0):
     fp2.close()
 
 
-def near_entity_resume(client, data_path, data_path_user, data_path_channel, move_num, sleep_seconds):
+def near_entity_resume(client, data_path, data_path_user, data_path_channel, sleep_seconds, move_num):
     with open(data_path_user, 'rb') as f_u:
         for tail_u in f_u:
             pass  # locate the last line
@@ -281,7 +280,7 @@ def near_entity_resume(client, data_path, data_path_user, data_path_channel, mov
 
     print("continue to conduct near_entity() from index " + str(last_index + 1) + " of the data_path file")
     start_index = last_index + 1
-    near_entity(client, data_path, move_num=move_num + start_index, sleep_seconds, start_index=start_index)
+    near_entity(client, data_path, sleep_seconds, move_num=move_num + start_index, start_index=start_index)
 
 
 def dedup(data_path):
@@ -380,7 +379,7 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                 for q in keywords:
                     keyword = q
                     chat_search = client.iter_messages(group_id, search=q, offset_date=date_time, reverse=after_before)
-                    #n = 0
+                    # n = 0
 
                     for chat in chat_search:
                         chat_search_json = chat.to_json()
@@ -566,10 +565,10 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                              channel_restriction_text1, channel_restriction_platform2,
                              channel_restriction_reason2, channel_restriction_text2, error,
                              group_info_json, chat_search_json, user_info_json))
-                        #n = n + 1
-                        #if (n % 1000) == 0:
-                            #time.sleep(10)
-                            #print("sleeping 10 seconds")
+                        # n = n + 1
+                        # if (n % 1000) == 0:
+                        # time.sleep(10)
+                        # print("sleeping 10 seconds")
 
             except Exception as e:
                 error = e
@@ -683,7 +682,7 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                 for q in keywords:
                     keyword = q
                     chat_search = client.iter_messages(group_id, search=q, offset_date=date_time, reverse=after_before)
-                    #n = 0
+                    # n = 0
 
                     for chat in chat_search:
                         chat_search_json = chat.to_json()
@@ -869,10 +868,10 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                              channel_restriction_text1, channel_restriction_platform2,
                              channel_restriction_reason2, channel_restriction_text2, error,
                              group_info_json, chat_search_json, user_info_json))
-                        #n = n + 1
-                        #if (n % 1000) == 0:
-                            #time.sleep(10)
-                            #print("sleeping 10 seconds")
+                        # n = n + 1
+                        # if (n % 1000) == 0:
+                        # time.sleep(10)
+                        # print("sleeping 10 seconds")
 
             except Exception as e:
                 error = e
@@ -903,7 +902,6 @@ def keywords_search_channel(client, data_path_channel, keywords, date_time, afte
                     after_before) + '~ ' + str(save_mode)
                 f_resume.write(record)
 
-
         print(str(len(group_pool)) + " channels have been collected!")
 
     else:
@@ -932,8 +930,8 @@ def keywords_search_channel_resume(client, data_path_resume):
     dfr.to_csv(new_file, index=False)
     keywords = eval(keywords)
     keywords_search_channel(client=client,
-                                data_path_channel=new_file,
-                                keywords=keywords,
-                                date_time=date_time,
-                                after_before=after_before,
-                                save_mode=save_mode)
+                            data_path_channel=new_file,
+                            keywords=keywords,
+                            date_time=date_time,
+                            after_before=after_before,
+                            save_mode=save_mode)
