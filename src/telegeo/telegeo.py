@@ -920,9 +920,9 @@ def keywords_search_channel_resume(client, data_path_resume):
         keywords = record[2]
         date_time = record[3]
         after_before = record[4]
-        if after_before== True:
+        if after_before == "True":
             after_before = "after"
-        elif after_before == False:
+        elif after_before == "False":
             after_before = "before"
         else:
             print("resume file error due to the wrong after_before")
