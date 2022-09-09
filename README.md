@@ -74,9 +74,10 @@ Then you could choose a item from the results to filter the map. For example, if
 telegeo.map_filter(data_path = "geo_range_hk_r500.csv",
                    target = "'state': '香港 Hong Kong'")
 ```
-This function will check all the coordinates in your original dataset "geo_range_hk_r500.csv", excluding all the coordinates you don't need based on your "standard" (target). This process will take some time if you have many coordinates to be filtered (due to the rate limit of "geopy"). You will get two csv files: 
-(1) geo_range_hk_r500_address.csv (contains the detailed geo information of all the coordinates in your original dataset); 
-(2) geo_range_hk_r500_filter.csv (a new dataset that includes all the coordinates you need, this dataset will be used for later data collection)
+This function will check all the coordinates in your original dataset "geo_range_hk_r500.csv", excluding all the coordinates you don't need based on your "standard" (target). 
+This process will take some time if you have many coordinates to be filtered (due to the rate limit of "geopy"). You will get two csv files:   
+(1) geo_range_hk_r500_address.csv (contains the detailed geo information of all the coordinates in your original dataset);   
+(2) geo_range_hk_r500_filter.csv (a new dataset that includes all the coordinates you need, this dataset will be used for later data collection)  
 
 Before the data collection, we could map_show() again with our new dataset "geo_range_hk_r500_filter.csv" to check the filter process:
 ```py
