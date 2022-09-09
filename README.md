@@ -82,7 +82,7 @@ Before the data collection, we could map_show() again with our new dataset "geo_
 ```py
 telegeo.map_show(save_path = "geo_range_hk_r500_filter.csv")
 ```
-![Figure 3](![newplot](https://user-images.githubusercontent.com/60833574/189328080-8a6a9929-9d0c-4991-ba5b-0af68bf53f1e.png))
+![Figure 3](https://user-images.githubusercontent.com/60833574/189328080-8a6a9929-9d0c-4991-ba5b-0af68bf53f1e.png)
 
 
 More tutorial: To Be Continued...
